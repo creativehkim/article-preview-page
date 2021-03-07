@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;1,300&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(233, 237, 243);
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+img {
+  overflow: hidden;
+}
+
+h3 {
+  margin: 0;
+  margin-bottom: 1rem;
+  color: rgb(66, 71, 95);
+}
+
+p {
+  font-size: 0.8rem;
+  line-height: 1.3rem;
+  font-weight: 100;
+  margin: 0;
+  color: rgb(91, 92, 95);
+}
+
+button:focus {
+  outline: none;
+}
+
+.container {
+  background-color: #fff;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 1px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: auto;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+.article-img {
+  flex-basis: 50rem;
+}
+
+.drawers-img {
+  width: 100%;
+  height: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  object-fit: cover;
+}
+
+.article-preview {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 40px;
+}
+
+.author-section {
+  display: flex;
+  margin-top: 20px;
+  position: relative;
+}
+.author {
+  display: flex;
+}
+.author-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 40px 0 10px;
+}
+
+.author-name,
+.date {
+  font-size: 12px;
+  margin: 0;
+}
+
+.author-name {
+  margin-bottom: 6px;
+  color: rgb(66, 71, 95);
+}
+
+.date {
+  color: rgb(91, 92, 95);
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.share-btn {
+  background-color: rgb(226, 232, 240);
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.share-btn:hover {
+  background-color: rgb(93, 101, 134);
+}
+
+.share-btn:hover > .svg-share path {
+  fill: #fff;
+}
+
+.share-tooltip {
+  background-color: rgb(79, 85, 112);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 20px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  width: 250px;
+  position: absolute;
+  top: 140px;
+  right: 65px;
+  transform: translateX(58%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: none;
+  z-index: 2;
+}
+
+.share-tooltip span {
+  color: rgb(169, 174, 197);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.social-icons svg {
+  align-items: center;
+  margin-left: 20px;
+}
+
+.tooltip-mobile {
+  display: none;
+}
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgb(79, 85, 112);
+  position: absolute;
+  top: 45px;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.active .share-tooltip {
+  display: flex;
+}
+
+.attribution {
+  position: fixed;
+  bottom: 5%;
+}
+
+@media screen and (max-width: 600px) {
+  h3 {
+    font-size: 1rem;
+  }
+  .container {
+    flex-direction: column;
+    overflow: hidden;
+    width: max-content;
+    height: auto;
+    margin: auto 30px;
+    z-index: 0;
+  }
+
+  .article-img {
+    height: 200px;
+  }
+
+  .article-preview {
+    margin: 30px 25px 18px;
+  }
+
+  .container > * {
+    flex: 0 auto;
+  }
+
+  .drawers-img {
+    border-radius: 0;
+  }
+
+  .article-text {
+    margin-bottom: 20px;
+  }
+  .author-section {
+    width: 100%;
+    margin-bottom: 0;
+    justify-content: space-between;
+  }
+
+  .active .share-tooltip {
+    display: none;
+  }
+
+  .tooltip-container {
+    position: relative;
+  }
+  .tooltip-mobile {
+    background-color: rgb(79, 85, 112);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1 1 1;
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    bottom: -100px;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .tooltip-mobile span {
+    color: rgb(169, 174, 197);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 5px;
+    margin-left: 30px;
+  }
+
+  .tooltip-mobile .social-icons {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+
+  .active .tooltip-mobile {
+    transform: translateY(-100px);
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+  }
+
+  .share-btn {
+    z-index: 3;
+  }
+}
